@@ -6,6 +6,21 @@ let sales = 123_456_789;
 let course = 'TypeScript';
 let is_published = true; 
 
+//occasions where you need to use annotation
+// if you dont annotate let foundMovie -> ts infer it as any
+//and you can do, for ex, foundMoive() -> which you shouldnt
+//any turns off all type-checking
+const movies = ['Arrival', 'The Thnig', 'Aliens']
+//let foundMovie; instead of this, we do:
+let foundMovie: string;
+
+for(let movie of movies){
+    if(movie === 'Arrival'){
+        foundMovie = 'Arrival';
+    }
+}
+
+
 //tuples 
 let user: [number, string] = [1, 'Deniz']
 
@@ -20,6 +35,7 @@ console.log(mySize)
 
 
 //functions
+
 /* function calculateTax(income: number): number {
     let x;
     if(income < 50_000)
@@ -27,10 +43,66 @@ console.log(mySize)
     return income * 1.3;
 } */
 
+function greeting (person: string = 'stranger'){
+    return `Hi ${person}!`
+}
+
+function square (num: number): string{
+    return (num * num).toString()
+};
+
+square(3)
+
+//when hover over rando: function rando(num: number): string | number   
+function rando(num: number){
+    if(Math.random() < 0.5){
+        return num.toString();
+    }
+    return num;
+};   
+
+const add = (x: number, y: number): number => {
+    return x + y;
+};
+
+//here we dont need to annotate string to color because
+//ts looks at the array and infer that color is string
+const colors = ['red', 'green', 'brown']
+colors.map(color => color.toUpperCase())
+
+//in JS although square('deniz') doesnt give an error,
+// the result will be NaN
+/* function square (num){
+  return num * num
+}
+ square('deniz')  */
+
 function calculateTax(income: number, taxYear = 2022): number {
     if(taxYear < 2022)
     return income * 1.5;
     return income * 1.3;
+}
+
+//void type
+
+//this function doesnt return anything, so ts infers return value as void
+function printTwice (msg: string){
+    console.log(msg)
+    console.log(msg)
+}
+
+//returns number
+function secondsInDay() {
+    return 24 * 60 * 60;
+}
+
+//never type: a return type for functions
+
+//or if you want to specify the function isnt suppossed to return anything:
+//or if i want always return nothing
+function printingTwice (msg: string): void{
+    console.log(msg)
+    console.log(msg)
 }
 
 calculateTax(10_000)
@@ -177,3 +249,5 @@ log?.('a');
 //this piece of code will get executed only if log is referencing
 //to an actual function 
 //otherwise, will get undefined
+
+
