@@ -84,6 +84,7 @@ function calculateTax(income: number, taxYear = 2022): number {
 }
 
 //void type
+//undefined is returned from a function if you dont return anything
 
 //this function doesnt return anything, so ts infers return value as void
 function printTwice (msg: string){
@@ -97,6 +98,19 @@ function secondsInDay() {
 }
 
 //never type: a return type for functions
+//indicates that a function should never (have a chance to) return anything
+function makeError(msg: string): never{
+    return undefined;
+    throw new Error(msg);
+}
+
+//a function that never stops - that loops forever
+function gameLoop(): never{
+    while(true){ 
+        console.log('game loop running')
+    }
+}
+
 
 //or if you want to specify the function isnt suppossed to return anything:
 //or if i want always return nothing
