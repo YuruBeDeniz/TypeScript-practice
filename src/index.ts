@@ -43,9 +43,11 @@ console.log(mySize)
     return income * 1.3;
 } */
 
-function greeting (person: string = 'stranger'){
+function greeting (person: string = 'stranger'): string{
     return `Hi ${person}!`
 }
+greeting() 
+//if nothing is provided, the default value('stanger' in our case) will kick in.
 
 function square (num: number): string{
     return (num * num).toString()
@@ -85,11 +87,15 @@ function calculateTax(income: number, taxYear = 2022): number {
 
 //void type
 //undefined is returned from a function if you dont return anything
+//void -> if you want to return nothing
 
 //this function doesnt return anything, so ts infers return value as void
-function printTwice (msg: string){
+// if you explicitly write :void and try to return something
+//it will throw an error
+function printTwice (msg: string): void{
     console.log(msg)
     console.log(msg)
+    return ''
 }
 
 //returns number
