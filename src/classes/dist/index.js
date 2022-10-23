@@ -1,4 +1,6 @@
 class Player {
+    static description = 'Player In Our Game';
+
     #score=0; //with #, it means that score is only available inside the Player class, cannot be accessed outside
     numLives=10; //if you put like this outside of constructor, it is hardcoded
     constructor(first, last){
@@ -16,6 +18,10 @@ class Player {
         const [first, last] = newName.split(' ');
         this.first = first;
         this.last = last;
+    }
+
+    static randomPlayer(){
+        return new Player('Andy', 'Sandberg')
     }
 
     get score (){
@@ -86,3 +92,40 @@ numLives:9
 
 //we treat setter and getter methods as properties: 
 //player1.fullName = 'Amy Adams'
+
+//static tells JS that that property or method exists on (beongs to) the 
+//class itself and it s not going to exist each individual
+//instance; so console:
+//player1.description --> doesnt exist but
+//Player.description (the class itself) -->console: 'Player In Our Game'
+
+
+//inheritance 
+
+class AdminPlayer extends Player {
+    constructor(first, last, powers){
+        super(first, last)
+        this.powers = powers;
+    }
+    isAdmin = true;
+}
+//super 
+//super comes into play when we have a class interiting or
+//extending another class and it specifically comes into play
+// when we have a constructor added on to this child class
+//if both parent and child classes have contructors: we need suğper()
+const admin =new AdminPlayer('admin', 'mcAdmin', ['delete', 'restore world']);
+console.log(admin.taunt());
+console.log(admin)
+//console:
+/* AdminPlayer {numLives: 10, first: 'admin', last: 'mcAdmin', isAdmin: true, #score: 0, …} 
+first: "admin"
+isAdmin: true
+last:"mcAdmin"
+numLives: 10
+powers: Array(2)0:"delete" 1:"restore world"length:2
+[[Prototype]]: Array(0)
+#score:0
+fullName:(...)
+score:(...)*/
+
