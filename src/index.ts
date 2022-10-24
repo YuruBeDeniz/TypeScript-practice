@@ -110,6 +110,10 @@ function makeError(msg: string): never{
     throw new Error(msg);
 }
 
+//Void returns a value (undefined): we dont care what this 
+//function returns, whereas never says this function should
+//never even get the opportunity to return
+
 //a function that never stops - that loops forever
 function gameLoop(): never{
     while(true){ 
