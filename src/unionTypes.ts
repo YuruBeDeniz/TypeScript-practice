@@ -22,7 +22,7 @@ function printAge(age: number | string): void {
 //type narrowing :
 
 function calculateTax(price: number | string, tax: number) {
-    if(typeof price === 'string'{
+    if(typeof price === 'string'){
        price = price.replace('$', '')
        return parseFloat(price) * tax
     } return price * tax;
@@ -30,6 +30,8 @@ function calculateTax(price: number | string, tax: number) {
 } 
 
 const stuff: (number | string)[] = [1,2,3,4, 'sdkna']
+//  (number | string)[] means that it is an array of type of number or string
+// number | string[] means that stuff is either a number of an array of strings
 const stuff2: number[] | string[] = [] 
 // stuff2 is different than stuff because stuff2 ya sadece number
 //ya da sadece string kabul ediyor. stuff ise ikisini de 
@@ -43,4 +45,20 @@ coordss.push({x:4, y:5})
 let zero: 0 = 0;
 //it is not a a number, it is 0
 
-//combine types and literals:
+let hi: 'hi' = 'hi';
+
+//combine union types and literals:
+
+let mood: 'Happy' | 'Sad' = 'Happy';
+mood = 'Sad';
+
+type DayOfWeek = 
+  | 'Monday' 
+  | 'Tuesday' 
+  | 'Wednesday' 
+  | 'Thursday'
+  | 'Friday' 
+  | 'Saturday' 
+  | 'Sunday';
+
+  let today: DayOfWeek = 'Monday'

@@ -30,7 +30,7 @@ class Player {
     ){}
 
     private secretMethod(): void{
-        console.log('secrect method')
+        console.log('secret method')
     }
 
     get fullName(): string {
