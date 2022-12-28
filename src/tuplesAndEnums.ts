@@ -31,3 +31,58 @@ const responses: HTTPResponse[] = [[404, 'not found'], [200, 'OK']];
 
 
 /* ----------------------------ENUMS---------------------- */
+//for ex, we want the user only navigate with up, down, left & right
+//or a commerce site; we have an order: pending, shipped & delivered 
+//and we want them the only statuses we allow for an order
+//we can make them 3 variables or instead we can use ENUMS
+//which allow us to define a set of constants
+
+enum OrderStatus {
+    PENDING,
+    SHIPPED, 
+    DELIVERED,
+    RETURNED,
+}
+
+//if we dont assign them values, we hover over and see that each
+//constant is assigned to a value starting from 0
+
+const statuss = OrderStatus.DELIVERED;
+
+function isDelivered(status: OrderStatus){
+    return status === OrderStatus.DELIVERED
+}
+
+isDelivered(OrderStatus.RETURNED);
+//console: false
+
+enum ArrowKeys {
+    UP = 'up',
+    DOWN ='down',
+    LEFT = 'left',
+    RIGHT = 'right',
+}
+
+//if move === ArrowKeys.LEFT
+
+//in order not to pollute JS code, make enum a constant:
+
+const enum OrderStatuss {
+    PENDING,
+    SHIPPED, 
+    DELIVERED,
+    RETURNED,
+}
+
+/* const order = {
+    orderNo: 2321321,
+    status: OrderStatuss.PENDING
+
+    in JS: the enum constant is erased and replaced with the order constant's value:
+    JS:
+    const order = {
+        orderNo: 2321321,
+        status: 0
+    }
+
+} */

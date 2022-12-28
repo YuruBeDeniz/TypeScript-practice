@@ -7,8 +7,8 @@
 //const pt: Pointt = {x: 5, y:7}
 
 interface Pointt {
-    x: number,
-    y: number
+    x: number;
+    y: number;
 }
 
 const pt: Pointt = {x: 5, y:7}
