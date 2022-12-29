@@ -45,3 +45,54 @@ const shoes: Product = {
 }
 
 console.log(shoes.applyDiscount(0.4))
+//to see the log in the terminal => tsc interfaces.ts
+//then => node interfaces.js
+
+//you can add more properties to an interface:
+// eg. you use an interface from a library and instead of 
+//manipulating it, you just want to add more properties:
+
+//an interface from a library:
+interface Dog {
+    name: string;
+    age: number;
+}
+
+//you want to add new properties to this interface:
+interface Dog {
+    breed: string;
+    bark(): string;
+}
+
+const kopus: Dog = {
+    name: 'Kopus',
+    age: 2,
+    breed: 'kangal',
+    bark() {
+        return 'Hav hav'
+    } 
+}
+
+interface VetDog {
+    vaccinated: boolean; 
+}
+
+
+/* --------------------ADD ON -------------------- */
+//now i want another type of dog: service dog which will have
+//all the properties of dog interface but with more feature
+
+interface ServiceDog extends Dog, VetDog {
+    job: 'drug sniffer' | 'guide' | 'bomb sniffer';
+}
+
+const chewy: ServiceDog = {
+    name: 'Chewy',
+    age: 1,
+    breed: 'kangal',
+    bark() {
+        return 'Hav hav hav'
+    },
+    job: 'guide',
+    vaccinated: true,
+}
