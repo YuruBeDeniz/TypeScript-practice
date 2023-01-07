@@ -79,7 +79,7 @@ colors.map(color => color.toUpperCase())
 }
  square('deniz')  */
 
-function calculateTax(income: number, taxYear = 2022): number {
+function calculateTaxx(income: number, taxYear = 2022): number {
     if(taxYear < 2022)
     return income * 1.5;
     return income * 1.3;
@@ -129,7 +129,7 @@ function printingTwice (msg: string): void{
     console.log(msg)
 }
 
-calculateTax(10_000)
+calculateTaxx(10_000)
 
 //Objects:
 /* let employee: {
